@@ -53,16 +53,19 @@ How to do 2: (only run command in host shell)
 - Run
 ```
 apt install nfs-common
+apt install cifs-utils
 mkdir /PlexMedia
 nano /etc/fstab
 ```
 - Add this to fstab
 ```
-//10.0.0.2/PlexMedia /PlexMedia cifs username=root,password=123456 0 0
+//10.0.0.2/PlexMedia /PlexMedia cifs username=root,password=123456,uid=100000,gid=100000 0 0
 
 #If using NFS then use this: (without password)
 #10.0.0.2:/mnt/HDD500G1/PlexMedia /PlexMedia nfs defaults,_netdev 0 0
-``` 
+```
+> Why uid and gid = 100000? bcause we are running from the unprivileged LCX, the proxmox acts as a middleman but it does not translate the root (0, 0) as root, it instead automatically add 100k more to make the host secured. 
+>So we gotta force it, otherwise we can only read, and cannot write.
 - Mount that to the lcx
 ```
 pct set 101 -mp0 /PlexMedia,mp=/PlexMedia
@@ -70,6 +73,12 @@ pct set 101 -mp0 /PlexMedia,mp=/PlexMedia
 #101 is the LCX container id
 #first /PlexMedia is dir from host
 #second /PlexMedia is dir on the LCX
+```
+
+- I learned a lot from these 2 videos
+```
+https://www.youtube.com/watch?v=Hu1fY0-FvVE
+https://www.youtube.com/watch?v=CFhlg6qbi5M
 ```
 
 # Installing Plex
