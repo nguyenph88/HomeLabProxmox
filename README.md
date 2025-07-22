@@ -37,7 +37,11 @@ sudo useradd -m testuser
 sudo passwd testuser
 sudo usermod -aG sudo testb
 ```
-- For Homelab: just ignore the NFS share, it's for people who have lots of time and nothing to do so they can play around with those ids. We can just create a SMBuser and use the credentials to login.
+- For Home<img width="3828" height="1655" alt="Screenshot 2025-07-22 125657" src="https://github.com/user-attachments/assets/7eaefdc9-ccb9-4b92-b157-9fd9a8c9a0ac" />
+lab: just ignore the NFS share, it's for people who have lots of time and nothing to do so they can play around with those ids. We can just create a SMBuser and use the credentials to login.
+- Try to set the network to a static IP like 10.0.0.2 so next time after reboot it won't change. Otherwise need to edit all the mount command.
+<img width="3828" height="1655" alt="Screenshot 2025-07-22 125657" src="https://github.com/user-attachments/assets/45203dfb-ad8e-49db-99e7-a40827f382e6" />
+
 
 # Installing Plex
 
