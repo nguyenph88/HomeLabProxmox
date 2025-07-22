@@ -64,8 +64,11 @@ nano /etc/fstab
 #If using NFS then use this: (without password)
 #10.0.0.2:/mnt/HDD500G1/PlexMedia /PlexMedia nfs defaults,_netdev 0 0
 ```
-> Why uid and gid = 100000? bcause we are running from the unprivileged LCX, the proxmox acts as a middleman but it does not translate the root (0, 0) as root, it instead automatically add 100k more to make the host secured. 
+> Why uid and gid = 100000? bcause we are running from the unprivileged LCX, the proxmox acts as a middleman but it does not translate the root (0, 0) as root, it instead automatically change to 100k to make the host secured. 
 >So we gotta force it, otherwise we can only read, and cannot write.
+> It also means, if we have a user in LCX with UID 1000, and we want to pass it through to TrueNAS, the uid and gid should be 101000.
+> Thanks me later!
+> 
 - Mount that to the lcx
 ```
 pct set 101 -mp0 /PlexMedia,mp=/PlexMedia
