@@ -101,7 +101,16 @@ Routing the network:
 1. Open the gateway and open forwarding for 80 and 443 for the nginx local IP:port. (i.e: to 10.0.0.113:81)
 
 > If you are using comcast xfinity like me they made it a pain in the butt here. We cannot change that on the website but instead we need to use the xinifty app. Now on the freaking app, they don't list all the LXC device, neither can we enter the local ip directly. So, you need to select the "Proxmox" at a freaking different IP. Not even my proxmox ip.
-<img width="1320" height="2868" alt="IMG_2069" src="https://github.com/user-attachments/assets/7a0aec23-a591-4992-8c73-e0b4f6819573" />
+
+2. Open nginx > SSL Ceritificate > add a wildcard cert for the domain *.domain.com > Use DNS challenge = Cloudflare and use the API key from CF
+3. Go to Hosts > Proxy Host > Add a proxy host > This is the subdomain you want the traffic to point to. In my case I want pve.domain.com to reverse to my proxmox at 10.0.0.222:8006
+
+<img width="373" height="460" alt="Screenshot 2025-07-24 151029" src="https://github.com/user-attachments/assets/2d9a354e-7cf1-4432-a521-e9fc34717903" /> <img width="387" height="465" alt="Screenshot 2025-07-24 150749" src="https://github.com/user-attachments/assets/6d47ce6f-9bdb-45e4-a8af-c6162ccb0663" />
+
+
+   
+
+
 
 # Cloudflare DDNS
 To update the configuration edit `/etc/systemd/system/cloudflare-ddns.service`. After edit please restart with `systemctl restart cloudflare-ddns`
