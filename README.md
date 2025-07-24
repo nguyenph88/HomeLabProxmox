@@ -90,3 +90,6 @@ https://www.youtube.com/watch?v=CFhlg6qbi5M
 >
 
 - If create privileged LCX, need to make sure the "Nestling" is enabled.
+
+# Misc & Notes:
+- Found a lot of cool scripts here: https://github.com/awesome-selfhosted/awesome-selfhosted?tab=readme-ov-file
