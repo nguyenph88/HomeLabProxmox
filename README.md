@@ -107,7 +107,7 @@ HOW TO DEAL WITH XFINITY COMCAST PORT FORWARDING
 > If you are using comcast xfinity like me they made it a pain in the butt. We cannot change that on the website but instead we need to use the xinifty app. Now on the freaking app, they don't list all the LXC device, neither can we enter the local ip directly.
 > If you ever created a lxc container before (nginxproxymanager) then the name is taken up and will be cached, we cannot select that because it's associated with the wrong number.
 > The way to deal with that is to add allthe "Proxmox" Devices in the Xfinity app (if you are running multiple lxc),then try to get the right one and delete the rest.
-> <img width="1320" height="1057" alt="IMG_2071" src="https://github.com/user-attachments/assets/fb97ae4d-de72-4fbe-af85-fae30bc542fd" />
+> <img width="820" height="557" alt="IMG_2071" src="https://github.com/user-attachments/assets/fb97ae4d-de72-4fbe-af85-fae30bc542fd" />
 
 
 
@@ -119,17 +119,15 @@ HOW TO DEAL WITH XFINITY COMCAST PORT FORWARDING
 4. Go to cloudflare website, set the A record for the domain for pve (also set * and www if you want)
 <img width="2019" height="115" alt="Screenshot 2025-07-24 152628" src="https://github.com/user-attachments/assets/35a0b98c-8a5b-4b05-bf3a-d69797855dfd" />
 
+5. At this point this pve.domain.com should be accessible from outside of the network
+6. Apply the same things for Plex, jellyfin or game server
    
-
-
-
 # Cloudflare DDNS
 To update the configuration edit `/etc/systemd/system/cloudflare-ddns.service`. After edit please restart with `systemctl restart cloudflare-ddns`
 
 # Nginx
-
+- If you cannot signin to proxmox with the 401 wrong ticket, needs to enabled SSL / HTTP2 support and force SSL for the domain
 
 # Misc & Notes:
-- Found a 
-lot of cool scripts here: https://github.com/awesome-selfhosted/awesome-selfhosted?tab=readme-ov-file
+- Found a lot of cool scripts here: https://github.com/awesome-selfhosted/awesome-selfhosted?tab=readme-ov-file
 
