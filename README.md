@@ -95,9 +95,9 @@ https://www.youtube.com/watch?v=CFhlg6qbi5M
 1. Register for a cloudflare account -> get an API key
 2. Get a new domain, point DNS to cloudflare 
 3. Install cloudflare DDNS LXC as usual (set *.domain.com and domain.com) > do all the basic setup as needed
-4. Install nginx LXC as usual > do all the basic setup as needed
+4. Install nginx LXC as usual > do all the basic setup as needed > this will fectch the local ip and update to cloudflare (just optional)
 
-Routing the network: 
+** Routing the network: 
 
 Below i will route traffic from pve.domain.com to my 10.0.0.222:8006 which is my proxmox datacenter.
 
