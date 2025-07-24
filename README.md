@@ -130,4 +130,5 @@ To update the configuration edit `/etc/systemd/system/cloudflare-ddns.service`. 
 
 # Misc & Notes:
 - Found a lot of cool scripts here: https://github.com/awesome-selfhosted/awesome-selfhosted?tab=readme-ov-file
-
+- Use this website to check if the port 80 and 443 are open on the ip https://canyouseeme.org/
+- Set SSL/TLS on Cloudflare to Full, otherwise streaming cannot work
