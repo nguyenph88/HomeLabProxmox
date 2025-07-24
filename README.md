@@ -107,7 +107,8 @@ HOW TO DEAL WITH XFINITY COMCAST PORT FORWARDING
 > If you are using comcast xfinity like me they made it a pain in the butt. We cannot change that on the website but instead we need to use the xinifty app. Now on the freaking app, they don't list all the LXC device, neither can we enter the local ip directly.
 > If you ever created a lxc container before (nginxproxymanager) then the name is taken up and will be cached, we cannot select that because it's associated with the wrong number.
 > The way to deal with that is to add allthe "Proxmox" Devices in the Xfinity app (if you are running multiple lxc),then try to get the right one and delete the rest.
-> <img width="320" height="1868" alt="IMG_2071" src="https://github.com/user-attachments/assets/c185f9a4-a9a6-4e92-9251-3333892e378c" />
+> <img width="1320" height="1057" alt="IMG_2071" src="https://github.com/user-attachments/assets/fb97ae4d-de72-4fbe-af85-fae30bc542fd" />
+
 
 
 2. Open nginx > SSL Ceritificate > add a wildcard cert for the domain *.domain.com > Use DNS challenge = Cloudflare and use the API key from CF
