@@ -99,12 +99,9 @@ https://www.youtube.com/watch?v=CFhlg6qbi5M
 
 Routing the network:
 1. Open the gateway and open forwarding for 80 and 443 for the nginx local IP:port. (i.e: to 10.0.0.113:81)
-```
-If you are using comcast xfinity like me they made it a pain in the butt here. We cannot change that on the website but instead we need to use the xinifty app. Now on the freaking app, they don't list all the LXC device, neither can we enter the local ip directly. So, you need to select the "Proxmox" at a freaking different IP. Not even my proxmox ip.
+
+> If you are using comcast xfinity like me they made it a pain in the butt here. We cannot change that on the website but instead we need to use the xinifty app. Now on the freaking app, they don't list all the LXC device, neither can we enter the local ip directly. So, you need to select the "Proxmox" at a freaking different IP. Not even my proxmox ip.
 <img width="1320" height="2868" alt="IMG_2069" src="https://github.com/user-attachments/assets/7a0aec23-a591-4992-8c73-e0b4f6819573" />
-
-
-```
 
 # Cloudflare DDNS
 To update the configuration edit `/etc/systemd/system/cloudflare-ddns.service`. After edit please restart with `systemctl restart cloudflare-ddns`
