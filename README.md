@@ -97,16 +97,26 @@ https://www.youtube.com/watch?v=CFhlg6qbi5M
 3. Install cloudflare DDNS LXC as usual (set *.domain.com and domain.com) > do all the basic setup as needed
 4. Install nginx LXC as usual > do all the basic setup as needed
 
-Routing the network:
+Routing the network: 
+
+Below i will route traffic from pve.domain.com to my 10.0.0.222:8006 which is my proxmox datacenter.
+
 1. Open the gateway and open forwarding for 80 and 443 for the nginx local IP:port. (i.e: to 10.0.0.113:81)
 
-> If you are using comcast xfinity like me they made it a pain in the butt here. We cannot change that on the website but instead we need to use the xinifty app. Now on the freaking app, they don't list all the LXC device, neither can we enter the local ip directly. So, you need to select the "Proxmox" at a freaking different IP. Not even my proxmox ip.
+HOW TO DEAL WITH XFINITY COMCAST PORT FORWARDING
+> If you are using comcast xfinity like me they made it a pain in the butt. We cannot change that on the website but instead we need to use the xinifty app. Now on the freaking app, they don't list all the LXC device, neither can we enter the local ip directly.
+> If you ever created a lxc container before (nginxproxymanager) then the name is taken up and will be cached, we cannot select that because it's associated with the wrong number.
+> The way to deal with that is to add allthe "Proxmox" Devices in the Xfinity app (if you are running multiple lxc),then try to get the right one and delete the rest.
+> <img width="320" height="1868" alt="IMG_2071" src="https://github.com/user-attachments/assets/c185f9a4-a9a6-4e92-9251-3333892e378c" />
+
 
 2. Open nginx > SSL Ceritificate > add a wildcard cert for the domain *.domain.com > Use DNS challenge = Cloudflare and use the API key from CF
 3. Go to Hosts > Proxy Host > Add a proxy host > This is the subdomain you want the traffic to point to. In my case I want pve.domain.com to reverse to my proxmox at 10.0.0.222:8006
 
 <img width="373" height="460" alt="Screenshot 2025-07-24 151029" src="https://github.com/user-attachments/assets/2d9a354e-7cf1-4432-a521-e9fc34717903" /> <img width="387" height="465" alt="Screenshot 2025-07-24 150749" src="https://github.com/user-attachments/assets/6d47ce6f-9bdb-45e4-a8af-c6162ccb0663" />
 
+4. Go to cloudflare website, set the A record for the domain for pve (also set * and www if you want)
+<img width="2019" height="115" alt="Screenshot 2025-07-24 152628" src="https://github.com/user-attachments/assets/35a0b98c-8a5b-4b05-bf3a-d69797855dfd" />
 
    
 
@@ -119,5 +129,6 @@ To update the configuration edit `/etc/systemd/system/cloudflare-ddns.service`. 
 
 
 # Misc & Notes:
-- Found a lot of cool scripts here: https://github.com/awesome-selfhosted/awesome-selfhosted?tab=readme-ov-file
+- Found a 
+lot of cool scripts here: https://github.com/awesome-selfhosted/awesome-selfhosted?tab=readme-ov-file
 
