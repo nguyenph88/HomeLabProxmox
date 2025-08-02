@@ -20,8 +20,13 @@ gdisk /dev/sdc (change the name) (type o , n , w)
 
 - Don't start it yet, need to mount the storage first. In Proxmox main shell use these:
 ```
+# Run this to get a list of disks
+ls -l /dev/disk/by-id
+
+# pick the one that you want to mount, i have 3 to mount
 qm set 100 -scsi1 /dev/disk/by-id/ata-TOSHIBA_DT01ACA200_X4GVW1RTS
 qm set 100 -scsi2 /dev/disk/by-id/ata-ST500DM002-1BD142_W2AYZ0QV
+qm set 100 -scsi3 /dev/disk/by-id/ata-TOSHIBA_MK5076GSX_41RQB0C8B
 ```
 
 Keys takeaway:
