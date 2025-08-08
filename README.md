@@ -133,6 +133,39 @@ To update the configuration edit `/etc/systemd/system/cloudflare-ddns.service`. 
 # Nginx
 - If you cannot signin to proxmox with the 401 wrong ticket, needs to enabled SSL / HTTP2 support and force SSL for the domain
 
+# Docker and Portainer
+There were a few things that I have to dealt with in order to get everything up and running
+1. To install docker, run the community script (I run as VM because I have enough resources/plus I dont want to dael with unprivileged/privileged BS)
+2. Then install portainer (google it there is a script and 3 commands lines) - It will be available at yourip:9443
+3. SSH is not enabled by default, need to do that
+```
+sudo apt update
+sudo apt install openssh-server
+
+# then add that to services
+sudo systemctl enable sshd
+sudo systemctl start sshd
+
+# now check the firewall and turn off or allow 22
+sudo ufw allow ssh
+```
+4. Then setup a ssh or connection to upload file, i use FileZilla
+5. Then need to set permission for root to allow to connect using ssh (it's my homelab I use root for convinience, idc about security)
+```
+# first change the config
+sudo nano /etc/ssh/sshd_config
+
+# find this line, change it to yes !IMPORTANT: remove the freaking # in front of the line, i missed that and it drove me crazy
+PermitRootLogin yes
+
+# restart the service
+sudo systemctl restart sshd
+```
+6. Try with:
+```
+ssh root@10.0.0.111
+```
+
 # Misc & Notes:
 - Found a lot of cool scripts here: https://github.com/awesome-selfhosted/awesome-selfhosted?tab=readme-ov-file
 - Use this website to check if the port 80 and 443 are open on the ip https://canyouseeme.org/
