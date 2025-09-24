@@ -1,5 +1,7 @@
 # HomeLabProxmox
 
+NOTE TO SELF: after restarting, should do `mount -a`
+
 Not comprehensive, just for my notes
 
 Setting up my home lab with the following stack:
